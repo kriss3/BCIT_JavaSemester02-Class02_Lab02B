@@ -10,5 +10,6 @@ public class Runner
 	public static void run()
 	{
 		Game g = new Game();
+		g.guessTheDate();
 	}
 }
