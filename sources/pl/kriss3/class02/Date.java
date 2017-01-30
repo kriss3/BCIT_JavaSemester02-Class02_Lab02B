@@ -111,6 +111,37 @@ public class Date
 
 	public String toString()
 	{
-		return String.format("%4d - %02d - %02d", year, month, day);
+		return String.format("%4d-%02d-%02d", year, month, day);
+	}
+	
+	//-1 smaller; 1 greater; 0 same
+	public int comparer(Date date2Compare)
+	{	
+		
+		int result = -1;
+		
+		boolean sameYear = this.getYear() == date2Compare.getYear();
+		boolean sameMonth = this.getMonth() == date2Compare.getMonth();
+		boolean sameDay = this.getDay() == date2Compare.getDay();
+		
+				
+		if((this.getYear() > date2Compare.getYear()))
+		{
+			result = 1;
+		}
+		else if (sameYear && this.getMonth() > date2Compare.getMonth())
+		{
+			result = 1;
+		}
+		else if(sameYear && sameMonth && this.getDay() > date2Compare.getDay())
+		{
+			result = 1;
+		} 
+		else if (sameYear && sameMonth && sameDay)
+		{
+			result = 0;
+		}
+		
+		return result;
 	}
 }

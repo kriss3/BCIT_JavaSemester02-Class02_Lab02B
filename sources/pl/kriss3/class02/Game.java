@@ -1,5 +1,6 @@
 package pl.kriss3.class02;
 
+import java.util.Calendar;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -26,6 +27,28 @@ public class Game
 		return new Date(rndDay, rndMonth, rndYear);
 	}
 	
+	public Date getRandomDate(Date minD, Date maxD)
+	{
+		boolean q = false;
+		Date result = null;
+		
+		while(!q)
+		{
+			result = getRandomDate(); 
+			
+			int r1 = result.comparer(minD);
+			int r2 = result.comparer(maxD);
+			
+			if(r1 == 1 && r2 == -1)
+			{
+				q = true;
+				break;
+			}
+		}
+		
+		return result;
+	}
+	
 	public void guessTheDate() 
 	{
 		boolean q = false;
@@ -33,6 +56,7 @@ public class Game
 		{
 			System.out.println("My date to guess: " + myRandomDate.toString());
 			
+			System.out.print("New Game. ");
 			String t1 = getGuessedValue(myRandomDate.getYear(), "year");
 			if(t1.equalsIgnoreCase("q"))
 			{
@@ -62,6 +86,22 @@ public class Game
 		System.out.println("The game is over. Thank you!");
 	}
 
+	public void guessTheBirthdayDay()
+	{
+		Date minDate = new Date(1, 1, 1900);
+		Date maxDate = new Date(1, 1, getCurrentYear());
+		Date newRandomDate = getRandomDate(minDate, maxDate);
+		System.out.println(minDate.toString());
+		System.out.println(maxDate.toString());
+		System.out.println(newRandomDate.toString());
+	}
+	
+	private int getCurrentYear()
+	{
+		Calendar c  = Calendar.getInstance();
+		return c.get(Calendar.YEAR);
+	}
+	
 	private String getGuessedValue(int baseValue, String denom)
 	{
 		String guessedValue = null;
