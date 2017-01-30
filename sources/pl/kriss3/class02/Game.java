@@ -95,13 +95,7 @@ public class Game
 		System.out.println(maxDate.toString());
 		System.out.println(newRandomDate.toString());
 	}
-	
-	private int getCurrentYear()
-	{
-		Calendar c  = Calendar.getInstance();
-		return c.get(Calendar.YEAR);
-	}
-	
+
 	private String getGuessedValue(int baseValue, String denom)
 	{
 		String guessedValue = null;
@@ -158,5 +152,11 @@ public class Game
 			result = false;
 		
 		return result;
+	}
+
+	private int getCurrentYear()
+	{
+		Calendar c  = Calendar.getInstance();
+		return c.get(Calendar.YEAR);
 	}
 }

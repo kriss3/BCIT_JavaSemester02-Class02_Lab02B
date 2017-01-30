@@ -15,9 +15,9 @@ public class Runner
 	
 	public static void run()
 	{
-		Game g = new Game();
-		g.guessTheDate();
+		Game game = new Game();
+		game.guessTheDate();
 		
-		g.guessTheBirthdayDay();
+		game.guessTheBirthdayDay();
 	}
 }
