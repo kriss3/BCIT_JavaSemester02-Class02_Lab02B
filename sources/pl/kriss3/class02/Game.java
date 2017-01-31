@@ -1,6 +1,5 @@
 package pl.kriss3.class02;
 
-import java.util.Calendar;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -13,7 +12,7 @@ public class Game
 	private static final int DAY_LOWER_BOUND = 1;
 	private static final int DAY_UPPER_BOUND = 31;
 	private static final Date MIN_DATE = new Date(1, 1, 1900);
-	private static final Date MAX_DATE = new Date(1, 1, getCurrentYear());
+	private static final Date MAX_DATE = new Date(1, 1, 2017);
 	private Scanner sc = new Scanner(System.in);
 	private Date myRandomDate = getRandomDate();
 	
@@ -175,9 +174,4 @@ public class Game
 		return result;
 	}
 
-	private static int getCurrentYear()
-	{
-		Calendar c  = Calendar.getInstance();
-		return c.get(Calendar.YEAR);
-	}
 }

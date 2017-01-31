@@ -36,11 +36,13 @@ public class Date
 		this.month = month;
 	}
 	
-	public int getYear() {
+	public int getYear() 
+	{
 		return year;
 	}
 	
-	public void setYear(int year) {
+	public void setYear(int year) 
+	{
 		this.year = year;
 	}
 	
@@ -122,7 +124,12 @@ public class Date
 		return String.format("%s %02d, %4d",Month.of(month), day, year);
 	}
 	
-	//-1 smaller; 1 greater; 0 same
+	/**
+	 * Public comparer method, compares this Date to a date passed to this method.
+	 * The result will return: -1 if smaller; 1 if greater; 0 if the same
+	 * @param date2Compare as Date
+	 * @return Integer indicating greater than, less than or equal;
+	 */
 	public int comparer(Date date2Compare)
 	{	
 		
