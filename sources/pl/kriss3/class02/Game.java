@@ -12,6 +12,8 @@ public class Game
 	private static final int MONTH_UPPER_BOUND = 12;
 	private static final int DAY_LOWER_BOUND = 1;
 	private static final int DAY_UPPER_BOUND = 31;
+	private static final Date MIN_DATE = new Date(1, 1, 1900);
+	private static final Date MAX_DATE = new Date(1, 1, getCurrentYear());
 	private Scanner sc = new Scanner(System.in);
 	private Date myRandomDate = getRandomDate();
 	
@@ -87,13 +89,32 @@ public class Game
 	}
 
 	public void guessTheBirthdayDay()
-	{
-		Date minDate = new Date(1, 1, 1900);
-		Date maxDate = new Date(1, 1, getCurrentYear());
-		Date newRandomDate = getRandomDate(minDate, maxDate);
-		System.out.println(minDate.toString());
-		System.out.println(maxDate.toString());
-		System.out.println(newRandomDate.toString());
+	{	
+		int maxTries = 5;
+		int totalScore = 0;
+		String kybGuess = null;
+		int counter;;
+		
+		
+		for(counter = 0; counter < maxTries ;counter++)
+		{
+			Date newRandomDate = getRandomDate(MIN_DATE, MAX_DATE);
+			
+			int d = counter + 1;
+			System.out.print("Date #" + d + ": What day of the week was: " + newRandomDate.toLongString() + ": " );
+			kybGuess = sc.next();
+			
+			if(kybGuess.equalsIgnoreCase(newRandomDate.getDayOfTheWeek()))
+			{
+				totalScore += 1;
+				System.out.println("Correct");
+			}
+			else
+			{
+				System.out.println("Wrong. It was a " + newRandomDate.getDayOfTheWeek());
+			}
+		}
+		System.out.println("You scorred: " + totalScore + " out of " + counter + ".\nGame Over");
 	}
 
 	private String getGuessedValue(int baseValue, String denom)
@@ -154,7 +175,7 @@ public class Game
 		return result;
 	}
 
-	private int getCurrentYear()
+	private static int getCurrentYear()
 	{
 		Calendar c  = Calendar.getInstance();
 		return c.get(Calendar.YEAR);

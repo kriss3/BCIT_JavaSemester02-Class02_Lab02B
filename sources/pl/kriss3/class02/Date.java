@@ -2,6 +2,7 @@ package pl.kriss3.class02;
 
 import java.time.Month;
 
+
 public class Date 
 {
 	private int day;
@@ -109,9 +110,16 @@ public class Date
 		return result;
 	}
 
+	//03-11-1996 - 3 of November 1996
 	public String toString()
 	{
 		return String.format("%4d-%02d-%02d", year, month, day);
+	}
+	
+	//November 3, 1996
+	public String toLongString()
+	{
+		return String.format("%s %02d, %4d",Month.of(month), day, year);
 	}
 	
 	//-1 smaller; 1 greater; 0 same
