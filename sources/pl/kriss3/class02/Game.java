@@ -16,7 +16,10 @@ public class Game
 	private Scanner sc = new Scanner(System.in);
 	private Date myRandomDate = getRandomDate();
 	
-	
+	/**
+	 * Base method to generate a random date;
+	 * @return returns random date as Date
+	 */
 	public Date getRandomDate()
 	{
 		//get random year, month, day and pass to the Date class inclusive
@@ -28,6 +31,12 @@ public class Game
 		return new Date(rndDay, rndMonth, rndYear);
 	}
 	
+	/**
+	 * Overloaded getRandom date method; it generates random date within boundry;
+	 * @param minD as integer
+	 * @param maxD as integer
+	 * @return random date as Date
+	 */
 	public Date getRandomDate(Date minD, Date maxD)
 	{
 		boolean q = false;
@@ -50,6 +59,9 @@ public class Game
 		return result;
 	}
 	
+	/**
+	 * "Main" method that does the job of guessing a date;
+	 */
 	public void guessTheDate() 
 	{
 		boolean q = false;
@@ -87,6 +99,9 @@ public class Game
 		System.out.println("The game is over. Thank you!");
 	}
 
+	/**
+	 * "Main" method that does the job of guessing a day of a random date;
+	 */
 	public void guessTheBirthdayDay()
 	{	
 		int maxTries = 5;
