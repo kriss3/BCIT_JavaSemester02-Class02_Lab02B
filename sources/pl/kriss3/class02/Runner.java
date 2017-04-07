@@ -18,6 +18,8 @@ public class Runner
 		Game game = new Game();
 		game.guessTheDate();
 		
+		
+		System.out.println();
 		game.guessTheBirthdayDay();
 	}
 }
